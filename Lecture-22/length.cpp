@@ -16,6 +16,7 @@ void reverse(char name[], int n){
     }
     return count;
  }
+ 
 int main(){
     char name [20];
 
