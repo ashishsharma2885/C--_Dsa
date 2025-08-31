@@ -3,6 +3,7 @@
         "*.ejs": "html",
         "iostream": "cpp",
         "xtree": "cpp",
-        "utility": "cpp"
+        "utility": "cpp",
+        "algorithm": "cpp"
     }
 }
