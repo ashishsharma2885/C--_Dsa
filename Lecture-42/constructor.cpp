@@ -1,51 +1,79 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-class Hero{
-    // properties
-    private:
+class Hero
+{
+private:
     int health;
-    public:
+
+public:
     char level;
 
     // constructor
-    Hero(){
-        cout << "Constructor Called" << endl;
+    Hero()
+    {
+        cout << "Simple Default Constructor called" << endl;
     }
 
     // parameterised Constructor
-    Hero(int health ){
+    Hero(int health)
+    {
         cout << "this -> " << this << endl;
-       this -> health = health;
+        this->health = health;
     }
 
-    void print(){
-        cout << health << endl;
+    Hero(int health, char level)
+    {
+        this->level = level;
+        this->health = health;
     }
-    int getHealth(){
+
+    // copy conrsutor
+    Hero(Hero& temp){
+        cout << "Copy constuctor is called" << endl;
+        this->health = temp.health;
+        this->level = temp.level;
+    }
+
+    void print()
+    {
+        cout << "health " << this->health << endl;
+        cout << "level " << this->level << endl;
+    }
+
+    int getHealth()
+    {
         return health;
     }
 
-    char getLevel(){
+    char getLevel()
+    {
         return level;
     }
-    void setHelth(int h){
+
+    void setHealth(int h)
+    {
         health = h;
     }
 
-    void setLevel(char ch){
+    void setLevel(char ch)
+    {
         level = ch;
     }
-
 };
 
-int main(){
+int main()
+{
+    Hero S(70, 'C');
+    S.print();
 
- // Object Created statical
-  cout << "Hi" << endl;
-  Hero ramesh(10);
-  cout << "Address of ramesh" << &ramesh << endl;
-  ramesh.getHealth();
-  cout << "Hello" << endl;
+    Hero R(S); // Copy constructor
+    R.print();
 
+    // Object Created statical // cout << "Hi" << endl; 
+    // Hero ramesh(10); 
+    // cout << "Address of ramesh" << &ramesh << endl; 
+    // ramesh.getHealth(); // cout << "Hello" << endl;
+
+    return 0;
 }
