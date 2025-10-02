@@ -132,6 +132,17 @@ Node* getStartingNode(Node* head){
     return slow;
 }
 
+void removeLoop(Node* head){
+    if(head == NULL)
+    return;
+    Node* startofLoop = getStartingNode(head);
+    Node* temp = startofLoop;
+    while(temp -> next != startofLoop){
+        temp = temp -> next;
+    }
+    temp -> next = NULL;
+}
+
 int main(){
 
     Node* tail = NULL;
